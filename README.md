@@ -1,70 +1,150 @@
-# rg-cph-leetcode README
+rg-cph-leetcode
 
-This is the README for your extension "rg-cph-leetcode". After writing up a brief description, we recommend including the following sections.
+The rg-cph-leetcode extension bridges the gap between LeetCode and the CPH (Competitive Programming Helper) VS Code extension, enabling users to fetch problem test cases directly from LeetCode and run their code locally against these test cases. This extension is particularly useful for those who prefer working offline or debugging their solutions locally without submitting code to LeetCode.
 
-## Features
+Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-For example if there is an image subfolder under your extension project workspace:
+1. Automated Test Case Fetching
 
-\!\[feature X\]\(images/feature-x.png\)
+Fetches problem test cases directly from LeetCode problem URLs.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Parses the problem description to extract all test cases, including input and expected output.
 
-## Requirements
+Handles problems with multiple test cases seamlessly.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Stores test cases in structured files for local use:
 
-## Extension Settings
+Input Files: input_1.txt, input_2.txt, etc.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Output Files: output_1.txt, output_2.txt, etc.
 
-For example:
+2. Local Code Execution
 
-This extension contributes the following settings:
+Allows users to write and test their solutions in their preferred programming language.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+Supports running code against the fetched test cases locally.
 
-## Known Issues
+Compares actual outputs with expected outputs and highlights discrepancies for easy debugging.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+3. Multi-Language Support
 
-## Release Notes
+Supports multiple programming languages, including but not limited to:
 
-Users appreciate release notes as you update your extension.
+Python
 
-### 1.0.0
+C++
 
-Initial release of ...
+Java
 
-### 1.0.1
+JavaScript
 
-Fixed issue #.
+Provides customizable compile and run commands for each supported language.
 
-### 1.1.0
+4. Exclusion of Code Submission Feature
 
-Added features X, Y, and Z.
+Does not include any functionality to submit code to LeetCode, ensuring focus on local testing and debugging.
 
----
+Requirements
 
-## Following extension guidelines
+To use rg-cph-leetcode, ensure the following prerequisites are met:
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+VS Code: Version 1.65.0 or higher.
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+CPH Extension: Installed and configured in VS Code.
 
-## Working with Markdown
+Internet Access: Required for fetching test cases from LeetCode.
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+Programming Language Compilers/Interpreters:
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+Python: Python 3.x installed and added to PATH.
 
-## For more information
+C++: GCC or any standard C++ compiler installed.
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+Other languages: Relevant compilers or interpreters installed.
 
-**Enjoy!**
+Extension Settings
+
+The extension contributes the following settings that can be customized:
+
+Language-Specific Configurations
+
+C++ Configuration Example
+
+{
+  "cph.language.cpp.compile": "g++ -std=c++17 -o $fileNameWithoutExt $fileName",
+  "cph.language.cpp.run": "./$fileNameWithoutExt"
+}
+
+Python Configuration Example
+
+{
+  "cph.language.python.run": "python $fileName"
+}
+
+Other Languages
+
+Add configurations for additional languages as required, following the structure above.
+
+Test Case Management
+
+Test Case Directory: Specify the folder where input and output test case files are stored.
+
+Custom Test Cases: Users can manually add or edit test cases for further testing.
+
+User Workflow
+
+1. Fetching Problem Test Cases
+
+Run the command CPH: Fetch Test Cases.
+
+Enter the LeetCode problem URL in the input prompt.
+
+The extension parses the problem description and extracts test cases.
+
+Test cases are saved locally in the specified directory.
+
+2. Writing and Testing Code
+
+Write your solution in your preferred programming language.
+
+Run the command CPH: Run Test Cases to execute your solution against the fetched test cases.
+
+3. Viewing Results
+
+The extension compares the actual outputs of your solution with the expected outputs.
+
+Highlights any mismatches for easier debugging.
+
+Known Issues
+
+Test Case Fetching Errors:
+
+Some problem descriptions may have non-standard formats, leading to parsing failures.
+
+Ensure the problem URL is accessible and publicly available.
+
+Multi-Language Support:
+
+The default configurations may need adjustments for less commonly used languages.
+
+File Path Conflicts:
+
+Avoid using directories with restricted permissions for storing test cases.
+
+Release Notes
+
+1.0.0
+
+Initial release of rg-cph-leetcode.
+
+Added features for fetching test cases, executing solutions locally, and comparing outputs.
+
+Supported languages: Python, C++, Java, and JavaScript.
+
+1.1.0
+
+Improved error handling for test case fetching.
+
+Added support for customizable test case directories.
+
+Enhanced multi-language support.
