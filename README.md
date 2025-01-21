@@ -14,9 +14,9 @@ Handles problems with multiple test cases seamlessly.
 
 Stores test cases in structured files for local use:
 
-Input Files: input_1.txt, input_2.txt, etc.
+Input Files: inputs.txt
 
-Output Files: output_1.txt, output_2.txt, etc.
+Output Files: outputs.txt
 
 ### 2. Local Code Execution
 
