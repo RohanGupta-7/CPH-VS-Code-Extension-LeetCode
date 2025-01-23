@@ -129,7 +129,7 @@ Initial release of rg-cph-leetcode.
 
 Added features for fetching test cases, executing solutions locally, and comparing outputs.
 
-Supported languages: Python, C++, Java, and JavaScript.
+Supported languages: Python, C++.
 
 ### 1.1.0
 
