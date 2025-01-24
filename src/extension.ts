@@ -63,8 +63,8 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
-    const runAndCompareCommand = vscode.commands.registerCommand('cph-leetcode.runAndCompare', async () => {
-        console.log('Command "cph-leetcode.runAndCompare" triggered');
+    const runAndCompareCommand = vscode.commands.registerCommand('rg-cph-leetcode.runAndCompare', async () => {
+        console.log('Command "rg-cph-leetcode.runAndCompare" triggered');
         try {
             const inputFiles = await vscode.workspace.findFiles('**/inputs.txt', '**/node_modules/**', 1);
             const outputFiles = await vscode.workspace.findFiles('**/outputs.txt', '**/node_modules/**', 1);
@@ -162,7 +162,7 @@ function getFileExtension(language: string): string {
 
 function getStarterCode(language: string): string {
     switch (language) {
-        case "C++": return `#include <bits/stdc++.h>\nusing namespace std;\nusing llu = unsigned long long;\nusing ll = long long;\nusing ld = long double;\nusing vl = vector<ll>;\nusing sl = set<ll>;\nusing msl = multiset<ll>;\nusing ma = map<ll, ll>;\nusing vvl = vector<vector<ll>>;\nusing vp = vector<pair<ll, ll>>;\nusing sp = set<pair<ll, ll>>;\nusing msp = multiset<pair<ll, ll>>;`;
+        case "C++": return `#include <bits/stdc++.h>\nusing namespace std;\nusing llu = unsigned long long;\nusing ll = long long;\nusing ld = long double;\nusing vl = vector<ll>;\nusing sl = set<ll>;\nusing msl = multiset<ll>;\nusing ma = map<ll, ll>;\nusing vvl = vector<vector<ll>>;\nusing vp = vector<pair<ll, ll>>;\nusing sp = set<pair<ll, ll>>;\nusing msp = multiset<pair<ll, ll>>;\n\nint main()\n{\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    cout.tie(NULL);\n          // Start your code here\n    return 0;\n}`;
         case "Python": return `# Write your code here\ndef main():\n    pass\n\nif __name__ == "__main__":\n    main()`;
         default: return "// Unsupported language";
     }
@@ -172,8 +172,6 @@ function getLanguageFromExtension(extension: string): string | null {
     switch (extension) {
         case "cpp": return "C++";
         case "python": return "Python";
-        // case "java": return "Java";
-        case "js": return "JavaScript";
         default: return null;
     }
 }
