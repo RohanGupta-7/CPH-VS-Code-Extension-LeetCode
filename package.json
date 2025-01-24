@@ -1,17 +1,21 @@
 {
   "name": "rg-cph-leetcode",
   "displayName": "rg-cph-leetcode",
-  "description": "",
+  "publisher": "rohan-projects",
+  "description": "A VS Code extension for CP with LeetCode.",
   "version": "0.0.1",
+  "license": "LICENSE",
   "engines": {
     "vscode": "^1.96.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RohanGupta-7/CPH-VS-Code-Extension-LeetCode"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    
-  ],
+  "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
@@ -52,6 +56,8 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "axios": "^1.7.9",
+    "fast-xml-parser": "^4.5.1",
     "puppeteer": "^23.11.1"
   }
 }
